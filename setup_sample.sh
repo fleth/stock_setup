@@ -1,6 +1,13 @@
 #!/bin/bash
 
-mkdir ~/workspace
-cd ~/workspace
+current=`pwd`
+echo $current
+git submodule update -i
+git submodule foreach git pull origin master
 
-git clone https://github.com/fleth/stock_data_sample.git stock_data
+mkdir ~/workspace
+rm ~/workspace/stock_data
+ln -s $current/data ~/workspace/stock_data
+
+sh setup/install.sh
+sh setup/setup.sh
