@@ -56,7 +56,7 @@ slackbot==0.5.3
 slacker==0.9.65
 statsmodels==0.8.0
 TA-Lib==0.4.16
-tensorflow==1.4.1
+tensorflow==2.5.0
 tensorflow-tensorboard==0.4.0rc3
 traitlets==4.3.2
 tslearn==0.1.19
