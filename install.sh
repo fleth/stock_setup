@@ -1,16 +1,18 @@
-#!/bin/bash
+pyenv uninstall 3.6.5
+pyenv install 3.6.5
+pyenv global 3.6.5
+pip install --upgrade pip
 
-# pyenv
-git clone git://github.com/yyuu/pyenv.git ~/.pyenv
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
-echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
-echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
-source ~/.bash_profile
-
-# python
-sudo apt-get install -y gcc make libssl-dev
-pyenv install 3.5.2
-pyenv global 3.5.2
+pip --no-cache-dir install numpy Cython
+pip --no-cache-dir install -r $(dirname $0)/requirement.txt
+pip --no-cache-dir install redis
+pip --no-cache-dir install pandas jpholiday
+pip --no-cache-dir install tensorflow-gpu==1.5.0
+pip --no-cache-dir install keras==2.2.4
+pip --no-cache-dir install tsfresh
+pip --no-cache-dir install scikit-optimize==0.8.1
+pip --no-cache-dir install dash
+pip --no-cache-dir install dash-bootstrap-components
 
 # ta-lib
 cd /tmp
@@ -21,7 +23,5 @@ cd ta-lib/
 make
 sudo make install
 
-# library
-pip install numpy Cython
-pip install -r requirement.txt
-pip install redis auto-sklearn
+pip --no-cache-dir install TA-lib
+
